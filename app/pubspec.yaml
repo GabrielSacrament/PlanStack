@@ -64,8 +64,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/tudoconecta.png
-    - assets/Logo/Logo200x51.png
+    - assets/planstack.png
+    - assets/Logo/PlanStack_Logo200x51.png
     - assets/Isotipo/IsotipoPT30.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

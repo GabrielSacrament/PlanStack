@@ -100,7 +100,7 @@ class BarraSuperior extends StatelessWidget {
                 radius: 17,
                 backgroundColor: AppCores.verdeMarca,
                 child: Text(
-                  'BSC',
+                  'GBS',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 9,

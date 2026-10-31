@@ -31,7 +31,7 @@ class _BarraLateralState extends State<BarraLateral> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 340),
         curve: Curves.easeInOut,
-        width: expandida ? 200 : 72,
+        width: expandida ? 215 : 72,
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
           color: AppCores.menuFundo,
@@ -95,7 +95,7 @@ class _BarraLateralState extends State<BarraLateral> {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  expandida ? 'Versão 2026.10.029' : 'v.029',
+                  expandida ? 'Versão 2026.10.001' : 'v.001',
                   style: const TextStyle(
                     color: AppCores.cinzaEscuro,
                     fontSize: 11,
@@ -112,25 +112,40 @@ class _BarraLateralState extends State<BarraLateral> {
 
   Widget _cabecalho(bool expandida, bool telaEstreita) {
     if (expandida) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Image.asset(
-                'assets/Logo/Logo200x51.png',
-                fit: BoxFit.contain,
+      return SizedBox(
+        height: 34,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 28),
+                  child: Image.asset(
+                    'assets/Logo/PlanStack_Logo200x51.png',
+                    height: 26,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-            ),
-            BotaoIconeApp(
-              icone: Icons.arrow_left,
-              tooltip: 'Recolher menu',
-              cor: AppCores.cinzaEscuro,
-              tamanho: 24,
-              aoPressionar: () => setState(() => _expandida = false),
-            ),
-          ],
+              Align(
+                alignment: Alignment.centerRight,
+                child: SizedBox(
+                  width: 28,
+                  height: 28,
+                  child: BotaoIconeApp(
+                    icone: Icons.arrow_left,
+                    tooltip: 'Recolher menu',
+                    cor: AppCores.cinzaEscuro,
+                    tamanho: 22,
+                    aoPressionar: () => setState(() => _expandida = false),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
@@ -192,11 +207,11 @@ class _BarraLateralState extends State<BarraLateral> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         margin: EdgeInsets.symmetric(
-          horizontal: expandida ? 12 : 6,
+          horizontal: expandida ? 8 : 6,
           vertical: 3,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: expandida ? 12 : 0,
+          horizontal: expandida ? 6 : 0,
           vertical: 10,
         ),
         decoration: BoxDecoration(
@@ -204,12 +219,12 @@ class _BarraLateralState extends State<BarraLateral> {
           borderRadius: BorderRadius.circular(6),
           boxShadow: selecionado
               ? [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.08),
-                    offset: const Offset(0, 3),
-                    blurRadius: 7,
-                  ),
-                ]
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.08),
+              offset: const Offset(0, 3),
+              blurRadius: 7,
+            ),
+          ]
               : null,
         ),
         child: Row(
@@ -217,13 +232,18 @@ class _BarraLateralState extends State<BarraLateral> {
               ? MainAxisAlignment.start
               : MainAxisAlignment.center,
           children: [
-            Icon(
-              icone,
-              size: 18,
-              color: selecionado ? AppCores.verdeMarca : AppCores.iconePadrao,
+            SizedBox(
+              width: 20,
+              child: Center(
+                child: Icon(
+                  icone,
+                  size: 18,
+                  color: selecionado ? AppCores.verdeMarca : AppCores.iconePadrao,
+                ),
+              ),
             ),
             if (expandida) ...[
-              const SizedBox(width: 10),
+              const SizedBox(width: 6),
               Expanded(
                 child: Text(
                   rotulo,
@@ -235,7 +255,8 @@ class _BarraLateralState extends State<BarraLateral> {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              if (selecionado)
+              if (selecionado) ...[
+                const SizedBox(width: 4),
                 Container(
                   width: 6,
                   height: 6,
@@ -244,6 +265,7 @@ class _BarraLateralState extends State<BarraLateral> {
                     shape: BoxShape.circle,
                   ),
                 ),
+              ],
             ],
           ],
         ),
