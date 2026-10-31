@@ -63,12 +63,16 @@ class BotaoApp extends StatelessWidget {
                 Icon(icone, size: 18, color: corTexto),
                 const SizedBox(width: 8),
               ],
-              Text(
-                texto,
-                style: TextStyle(
-                  color: corTexto,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
+              Flexible(
+                child: Text(
+                  texto,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: corTexto,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ],

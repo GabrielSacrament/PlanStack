@@ -40,7 +40,7 @@ class _TelaInicioState extends State<TelaInicio> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Seja bem-vindo(a) ao BSCSuite!',
+                    'Seja bem-vindo(a) ao PlanStack!',
                     style: TextStyle(
                       letterSpacing: 2.2,
                       fontSize: 18,
@@ -65,13 +65,13 @@ class _TelaInicioState extends State<TelaInicio> {
                                 pause: const Duration(milliseconds: 1400),
                                 animatedTexts: [
                                   TypewriterAnimatedText(
-                                    'Seu Hub de gestão estratégica. O que faremos hoje?',
+                                    'Planeje e organize suas ideias aqui! O que planejaremos hoje?',
                                     textStyle: const TextStyle(
                                       letterSpacing: 2.4,
                                       fontSize: 14,
                                       color: AppCores.textoSecundario,
                                     ),
-                                    speed: const Duration(milliseconds: 50),
+                                    speed: const Duration(milliseconds: 100),
                                   ),
                                 ],
                               )
